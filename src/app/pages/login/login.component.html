@@ -1,0 +1,44 @@
+<div class="auth_main">
+  <div class="box-container">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <form class="example-form">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Correo" />
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Contraseña" />
+          </mat-form-field>
+
+        </mat-card-content>
+
+        <button mat-stroked-button color="primary" class="btn-block">
+          Login
+        </button>
+
+        <div class="social-networks">
+          <p>
+            Login with a social networks
+          </p>
+          <div class="google-btn">
+            <div class="google-icon-wrapper">
+              <img
+                class="google-icon"
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                alt="google button"
+              />
+            </div>
+            <p class="btn-text">
+              <b>Sign in with google</b>
+            </p>
+          </div>
+        </div>
+      </form>
+      <a routerLink="/register" class="link" routerLinkActive="active"> Crear cuenta </a>
+    </mat-card>
+  </div>
+</div>
