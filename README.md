@@ -8,6 +8,7 @@ Utiliza varios proyectos de código abierto para funcionar correctamente:
 * [NewsApi](https://newsapi.org/s/mexico-news-api)
 * [Angular Material](https://material.angular.io/)
 * [SweetAlert](https://sweetalert2.github.io/)
+* [Firebase](https://firebase.google.com/)
 * [NodeJS](https://nodejs.org/es/)
 
 ### Instalación
