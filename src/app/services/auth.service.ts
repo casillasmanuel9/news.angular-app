@@ -72,7 +72,6 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       firebase.auth().onAuthStateChanged(async (user) => {
         if (user?.uid) {
-          console.log(user);
           this.token = user.uid;
           this.displayName = user.displayName;
           this.email = user.email;

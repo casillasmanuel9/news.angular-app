@@ -30,7 +30,6 @@ export class NewsComponent implements OnInit {
 
   async getNews() {
     this.articles = [...await this.newsService.getNews(this.countrySelected,this.categorySelected)];
-    console.log(this.articles)
   }
 
   onChange() {
