@@ -1,0 +1,66 @@
+$bambu: #0c3c4a;
+$dark-gray: #636262;
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  font-family: Avenir;
+  font-size: 30px;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin: 0;
+  text-align: center;
+  color: $bambu;
+}
+
+.logo {
+  width: 150px;
+}
+
+.user-text {
+  font-family: OpenSans;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin: 0;
+  color: $dark-gray;
+}
+
+@media screen and (max-width:600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  color: $bambu;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 7px 10px 7px 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  transition: color .3s ease;
+  transition: background-color .3s ease;
+
+  &:hover {
+    background-color: darken($color: #ffffff, $amount: 5);
+    color: darken($color:  $bambu, $amount: 15);
+  }
+}

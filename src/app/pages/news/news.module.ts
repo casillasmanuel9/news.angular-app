@@ -1,4 +1,4 @@
-import { PipesModule } from './../../pipes/pipes.module';
+import { ComponentsModule } from './../../components/components.module';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatButtonModule,
     MatSelectModule,
-    PipesModule
+    ComponentsModule
   ]
 })
 export class NewsModule { }

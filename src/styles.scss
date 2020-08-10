@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+$bambu: #0c3c4a;
 html,
 body {
   height: 100%;
@@ -13,11 +13,15 @@ body {
   width: 100%;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .auth_main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: indigo;
+  background-color: $bambu;
   margin: 0px;
   height: 100vh;
   width: 100vw;

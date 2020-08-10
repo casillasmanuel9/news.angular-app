@@ -25,7 +25,7 @@ export class AuthService {
         this.email = user.email;
         this.router.navigate(['/news'], { replaceUrl: true });
       })
-      .catch((e) => this.alertService.alertError('Ooops..', e.message));
+      .catch((e) => console.log(e));
   }
 
   loginWithEmailPassword(email: string, password: string) {
@@ -47,10 +47,31 @@ export class AuthService {
     });
   }
 
+  registerWithEmailPassword(email: string, password) {
+    return new Promise((resolve, reject) => {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(async ({ user }) => {
+          await user.updateProfile({ displayName: name });
+          this.token = user.uid;
+          this.displayName = user.displayName || 'noname';
+          this.email = user.email;
+          this.router.navigate(['/news'], { replaceUrl: true });
+          resolve(true);
+        })
+        .catch((err) => {
+          console.log('err', err);
+          this.alertService.alertError('Ooops..', err.message);
+          resolve(true);
+        });
+    });
+  }
+
   async isLogged(): Promise<boolean> {
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
       firebase.auth().onAuthStateChanged(async (user) => {
-        if(user?.uid) {
+        if (user?.uid) {
           console.log(user);
           this.token = user.uid;
           this.displayName = user.displayName;
@@ -61,6 +82,17 @@ export class AuthService {
           resolve(false);
         }
       });
-    })
+    });
+  }
+
+  logout() {
+    firebase.auth().signOut();
+    this.token = null;
+    this.displayName = null;
+    this.email = null;
+  }
+
+  getEmail() {
+    return this.email;
   }
 }

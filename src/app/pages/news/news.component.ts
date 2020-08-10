@@ -34,12 +34,6 @@ export class NewsComponent implements OnInit {
   }
 
   onChange() {
-    console.log('cambio')
     this.getNews();
   }
-
-  openArticle(url: string) {
-    window.open(url, '_blank')
-  }
-
 }

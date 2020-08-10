@@ -4,27 +4,20 @@
       <mat-card-header>
         <mat-card-title>Registro</mat-card-title>
       </mat-card-header>
-      <form class="example-form">
+      <form class="example-form" [formGroup]="registerForm" (ngSubmit)="registerEmailPassword()" >
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nombre de usuario" />
+            <input formControlName="email" type="text" matInput placeholder="Correo"  />
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Correo" />
+            <input formControlName="password" type="password" matInput placeholder="Contraseña" />
           </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Contraseña" />
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Confirmar Contraseña" />
-          </mat-form-field>
         </mat-card-content>
 
-        <button mat-stroked-button color="primary" class="btn-block" style="margin-bottom: 16px;">
-          Register
+        <button mat-stroked-button color="primary" class="btn-block" [disabled]="loading" style="margin-bottom: 16px;">
+          Registrar
         </button>
       </form>
       <a routerLink="/login" class="link" routerLinkActive="active"> Ya tengo cuenta </a>

@@ -1,43 +1,32 @@
-<div class="header"></div>
+<app-header> </app-header>
+
 <div class="container">
-  <div class="row">
-    <div  class="col-12 col-sm-4 col-md-3">
-      <mat-form-field style="width: 100%;" appearance="fill">
-        <mat-label>País</mat-label>
-        <mat-select [(ngModel)]="countrySelected" (ngModelChange)="onChange()">
-          <mat-option [value]="country.param" *ngFor="let country of countries" > {{country.name | uppercase}} </mat-option>
-        </mat-select>
-      </mat-form-field>
+  <div class="row controls">
+    <div class="col-6 col-sm-4 col-md-3">
+      <select
+        style="width: 100%;"
+        class="select"
+        [(ngModel)]="countrySelected"
+        (ngModelChange)="onChange()"
+      >
+        <option [value]="country.param" *ngFor="let country of countries">
+          <span> {{ country.name }} </span>
+        </option>
+      </select>
     </div>
-    <div  class="col-12 col-sm-4 col-md-3">
-      <mat-form-field style="width: 100%;" appearance="fill">
-        <mat-label>Categoría</mat-label>
-        <mat-select [(ngModel)]="categorySelected" (ngModelChange)="onChange()">
-          <mat-option [value]="category.param" *ngFor="let category of categories" > {{category.name | titlecase }} </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-sm-6 col-md-4" *ngFor="let article of articles">
-      <div class="card" (click)="openArticle(article.url)" >
-        <div
-        *ngIf="article.urlToImage"
-          class="img card-img-top"
-          [style]="article.urlToImage | domSanitizer"
-        ></div>
-        <div
-        *ngIf="!article.urlToImage"
-          class="img card-img-top"
-          [style]="'https://www.samsung.com/etc/designs/smg/global/imgs/support/cont/NO_IMG_600x600.png' | domSanitizer"
-        ></div>
-        <div class="card-body">
-          <p class="card-title"> {{article.title}} </p>
-          <p class="card-text"><small class="text-muted">{{ article.publishedAt }}</small></p>
-          <p class="card-text"> {{article.content | slice: 0:100}} ..... </p>
-          <p class="card-text"><small class="text-muted">{{ (article.author) ? ('Por: ' + article.author) : '.'}}</small></p>
-        </div>
-      </div>
+    <div class="col-6 col-sm-4 col-md-3">
+      <select
+        style="width: 100%;"
+        class="select"
+        [(ngModel)]="categorySelected"
+        (ngModelChange)="onChange()"
+      >
+        <option [value]="category.param" *ngFor="let category of categories">
+          {{ category.name | titlecase }}
+        </option>
+      </select>
     </div>
   </div>
+
+  <app-list-news [articles]="articles"></app-list-news>
 </div>
