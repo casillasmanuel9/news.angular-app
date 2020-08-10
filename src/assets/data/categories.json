@@ -1,0 +1,28 @@
+[
+  {
+    "name": "business",
+    "param": "business"
+  },
+  {
+    "name": "entertainment",
+    "param": "entertainment"
+  },{
+    "name": "health",
+    "param": "health"
+  },
+  {
+    "name": "general",
+    "param": "general"
+  },{
+    "name": "science",
+    "param": "science"
+  },
+  {
+    "name": "sports",
+    "param": "sports"
+  },
+  {
+    "name": "technology",
+    "param": "technology"
+  }
+]

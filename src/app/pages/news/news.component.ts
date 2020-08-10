@@ -1,3 +1,6 @@
+import { Select } from './../../interfaces/select';
+import { Article } from './../../interfaces/news';
+import { NewsService } from './../../services/news.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  articles: Article[] = [];
+  countries: Select[] = [];
+  categories: Select[] = [];
 
-  ngOnInit(): void {
+  countrySelected: string;
+  categorySelected: string;
+
+
+  constructor(private newsService: NewsService) { }
+
+  async ngOnInit(){
+    this.countries = [...await this.newsService.getCountries()];
+    this.categories = [...await this.newsService.getCategories()];
+    this.countrySelected = "mx";
+    this.categorySelected = "general";
+    this.getNews();
+  }
+
+  async getNews() {
+    this.articles = [...await this.newsService.getNews(this.countrySelected,this.categorySelected)];
+    console.log(this.articles)
+  }
+
+  onChange() {
+    console.log('cambio')
+    this.getNews();
+  }
+
+  openArticle(url: string) {
+    window.open(url, '_blank')
   }
 
 }

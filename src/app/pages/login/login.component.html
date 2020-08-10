@@ -1,10 +1,10 @@
 <div class="auth_main">
   <div class="box-container">
-    <mat-card class="example-card">
+    <mat-card>
       <mat-card-header>
         <mat-card-title>Login</mat-card-title>
       </mat-card-header>
-      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginWithEmailPassword()" >
+      <form [formGroup]="loginForm" (ngSubmit)="loginWithEmailPassword()" >
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input matInput type="text" formControlName="email" placeholder="Correo" />

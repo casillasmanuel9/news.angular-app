@@ -8,5 +8,6 @@ export const environment = {
     storageBucket: 'news-angular-app.appspot.com',
     messagingSenderId: '235763467450',
     appId: '1:235763467450:web:45787ce54d520209342e83',
-  }
+  },
+  newsApiKey: '6ce4bc6d03364cfb808d26a409e34f1a'
 };
