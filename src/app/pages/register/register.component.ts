@@ -20,13 +20,13 @@ export class RegisterComponent implements OnInit {
   ) {
     this.registerForm = this.formBuilder.group({
       email: [
-        'manue117@hotmail.es',
+        '',
         Validators.compose([
           Validators.required,
           Validators.pattern(/\S+@\S+\.\S+/),
         ]),
       ],
-      password: ['123qwe', Validators.compose([Validators.required])],
+      password: ['', Validators.compose([Validators.required])],
     });
   }
 

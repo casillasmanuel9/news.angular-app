@@ -15,7 +15,7 @@ $bambu: (
 
 $my-custom-primary: mat-palette($bambu, Main, Light, Dark);
 $my-custom-accent: mat-palette($mat-pink, 100, 500, A100);
-$my-custom-warn: mat-palette($mat-lime);
+$my-custom-warn: mat-palette($mat-red);
 
 $my-custom-theme: mat-light-theme(
   $my-custom-primary,

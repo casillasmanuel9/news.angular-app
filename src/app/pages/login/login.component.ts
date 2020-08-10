@@ -15,11 +15,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private alertService: MensajesService) {
     this.loginForm = this.formBuilder.group({
-      email: ['manue117@hotmail.es', Validators.compose([
+      email: ['', Validators.compose([
         Validators.required,
         Validators.pattern(/\S+@\S+\.\S+/)
       ])],
-      password: ['123qwe', Validators.compose([
+      password: ['', Validators.compose([
         Validators.required
       ])]
     })

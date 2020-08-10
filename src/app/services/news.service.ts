@@ -10,7 +10,7 @@ import { News } from '../interfaces/news';
   providedIn: 'root',
 })
 export class NewsService {
-  private urlBase = 'http://newsapi.org/v2/top-headlines';
+  private urlBase = 'https://newsapi.org/v2/top-headlines';
   private apiKey = environment.newsApiKey;
 
   constructor(private http: HttpClient, private mensajesService: MensajesService) {}
@@ -24,6 +24,9 @@ export class NewsService {
             category,
             apiKey: this.apiKey,
           },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+          }
         })
         .subscribe(
           (news) => resolve(news.articles),
