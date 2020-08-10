@@ -4,19 +4,19 @@
       <mat-card-header>
         <mat-card-title>Login</mat-card-title>
       </mat-card-header>
-      <form class="example-form">
+      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginWithEmailPassword()" >
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Correo" />
+            <input matInput type="text" formControlName="email" placeholder="Correo" />
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Contraseña" />
+            <input matInput type="password" formControlName="password" placeholder="Contraseña" />
           </mat-form-field>
 
         </mat-card-content>
 
-        <button mat-stroked-button color="primary" class="btn-block">
+        <button type="submit" [disabled]="loading"  mat-stroked-button color="primary" class="btn-block">
           Login
         </button>
 
@@ -24,7 +24,7 @@
           <p>
             Login with a social networks
           </p>
-          <div class="google-btn">
+          <div class="google-btn" (click)="loginWithGoogle()" >
             <div class="google-icon-wrapper">
               <img
                 class="google-icon"

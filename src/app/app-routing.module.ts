@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -12,12 +13,13 @@ const routes: Routes = [
   },
   {
     path: 'news',
-    loadChildren: () => import('./pages/news/news.module').then(m => m.NewsModule)
+    loadChildren: () => import('./pages/news/news.module').then(m => m.NewsModule),
+    canLoad: [AuthGuard]
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/login'
+    redirectTo: '/news'
   }
 ];
 
